@@ -8,17 +8,14 @@
 <body>
 <div class="out"></div>
 <script>
-function getURL(url) {
-  var req = new XMLHttpRequest();
-  req.addEventListener("load", () => {
-    return this.responseText;
-  });
-  req.open("GET", url);
-  req.send();
+function reqListener () {
+  var repos = this.responseText.length / 2;
+  document.querySelector('.out').innerHTML = `<p>${repos}</p>`;
 }
-const Out = document.querySelector('div, .out').innerHTML;
-var repos = JSON.parse(getURL('https://api.github.com/users/RowanFromBJC/repos')).length / 2;
-Out = repos;
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "http://www.example.org/example.txt");
+oReq.send();
 </script>
 </body>
 </html>
