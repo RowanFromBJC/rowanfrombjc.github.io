@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<div class="out"></div>
+<script>
+function getURL(url) {
+  var req = new XMLHttpRequest();
+  req.addEventListener("load", () => {
+    return this.responseText;
+  });
+  req.open("GET", url);
+  req.send();
+}
+const Out = document.querySelector('div, .out').innerHTML;
+var repos = JSON.parse(getURL('https://api.github.com/users/RowanFromBJC/repos')).length / 2;
+Out = repos;
+</script>
+</body>
+</html>
